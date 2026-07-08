@@ -1,0 +1,30 @@
+name = "vless-cloudflare-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# Environment variables
+vars = { }
+
+# Secrets (set via wrangler secret put)
+# VLESS_UUID = "your-uuid-here"
+
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "."
+watch_paths = ["src/**/*.ts"]
+
+# Route configuration (if using Workers with routes)
+[[routes]]
+pattern = "example.com/*"
+zone_name = "example.com"
+
+# Development configuration
+[env.development]
+vars = { }
+
+# Production configuration
+[env.production]
+vars = { }
+route = "example.com/*"
+zone_name = "example.com"
